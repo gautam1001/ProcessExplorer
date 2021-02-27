@@ -12,7 +12,9 @@ class ProcessInfo {
     private let process:NSRunningApplication
     
     private let cred:process_cred
-    
+    var runningProcess:NSRunningApplication{
+        return process
+    }
     var isSelected:Bool = false
     
     var name:String? {

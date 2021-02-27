@@ -81,9 +81,21 @@ class ProcessListManager {
             }
         }else{
             self.processes.sort { (p1, p2)  in
-                descriptor.ascending ? p2.pid > p1.pid : p1.pid > p2.pid 
+                descriptor.ascending ? p2.pid > p1.pid : p1.pid > p2.pid
             }
         }
+    }
+    
+    func killProcess(pid:pid_t){
+        if let index = processes.firstIndex (where: { $0.pid == pid }){
+            if processes[index].runningProcess.terminate(){
+                self.processes.removeAll { p in
+                       p.pid == pid
+               }
+                self.processTerminated?()
+            }
+        }
+        
     }
     
     deinit {

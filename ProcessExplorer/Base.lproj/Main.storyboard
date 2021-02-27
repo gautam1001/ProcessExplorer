@@ -687,8 +687,9 @@
                     <window key="window" title="Process Explorer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="1200" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="1200" height="400"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -985,6 +986,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y5c-0D-GUk">
+                                <rect key="frame" x="33" y="13" width="60" height="32"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="44c-c0-0By">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quitProcess:" target="sSN-TZ-afo" id="bdf-iA-v4T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wI4-ps-LoH" firstAttribute="leading" secondItem="iTt-Vo-zgy" secondAttribute="trailing" constant="80" id="1WT-Fp-saP"/>
@@ -1000,11 +1011,13 @@
                             <constraint firstItem="dJY-SE-3bF" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="30" id="ZaQ-de-d7g"/>
                             <constraint firstItem="iTt-Vo-zgy" firstAttribute="centerY" secondItem="QBV-yR-wbQ" secondAttribute="centerY" id="anc-so-3qI"/>
                             <constraint firstItem="jCh-bW-zAP" firstAttribute="top" secondItem="dJY-SE-3bF" secondAttribute="top" id="b0C-la-kc0"/>
+                            <constraint firstItem="y5c-0D-GUk" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="40" id="cCE-Aa-7vF"/>
                             <constraint firstItem="Vid-cb-k07" firstAttribute="leading" secondItem="NtY-Ft-94k" secondAttribute="trailing" constant="20" id="jyT-J0-TX7"/>
                             <constraint firstItem="NtY-Ft-94k" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="30" id="kla-o1-KZo"/>
                             <constraint firstItem="QBV-yR-wbQ" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="30" id="t5i-fi-o0P"/>
                             <constraint firstItem="iTt-Vo-zgy" firstAttribute="leading" secondItem="QBV-yR-wbQ" secondAttribute="trailing" constant="20" id="v9s-D5-Vvg"/>
                             <constraint firstAttribute="trailing" secondItem="jCh-bW-zAP" secondAttribute="trailing" constant="30" id="vG7-PJ-VSZ"/>
+                            <constraint firstAttribute="bottom" secondItem="y5c-0D-GUk" secondAttribute="bottom" constant="20" id="z81-FN-vua"/>
                         </constraints>
                     </view>
                     <connections>

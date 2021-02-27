@@ -15,6 +15,7 @@ class ProcessDetailViewController: NSViewController {
     @IBOutlet weak var parentValueLabel: NSTextField!
     @IBOutlet weak var bundleIdLabel: NSTextField!
     @IBOutlet weak var pathValueLabel: NSTextField!
+    private weak var process:ProcessInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,21 @@ class ProcessDetailViewController: NSViewController {
             list.delegate = self
         }
     }
+    
+    @IBAction func quitProcess(_ sender:Any){
+        guard let pid = self.process?.pid else {return}
+        ProcessListManager.shared.killProcess(pid: pid)
+        pidValueLabel.intValue = 0
+        parentValueLabel.intValue = 0
+        pathValueLabel.stringValue = ""
+        bundleIdLabel.stringValue = ""
+    }
 }
 
 extension ProcessDetailViewController:ProcessActionDelegate{
    
     func processSelected(with info:ProcessInfo){
+        process = info
         pidValueLabel.intValue = info.pid
         parentValueLabel.intValue = info.ppid
         pathValueLabel.stringValue = info.path

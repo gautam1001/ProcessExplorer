@@ -48,6 +48,8 @@ class ProcessListViewController: NSViewController {
         
         self.tableView?.tableColumns[0].sortDescriptorPrototype = nameDesc
     }
+    
+    
 }
 
 extension ProcessListViewController:NSTableViewDelegate {
