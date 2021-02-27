@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11325EA17AA0050D3EF /* ProcessInfoUtility.c */; };
+		48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11825EA222B0050D3EF /* ProcessInfo.swift */; };
+		48B6D11E25EA24390050D3EF /* ProcessListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11D25EA24390050D3EF /* ProcessListManager.swift */; };
 		48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */; };
 		48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56925EA0B5400CC2B17 /* ViewController.swift */; };
 		48E0E56C25EA0B5500CC2B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 		48B6D11125EA17AA0050D3EF /* ProcessExplorer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProcessExplorer-Bridging-Header.h"; sourceTree = "<group>"; };
 		48B6D11225EA17AA0050D3EF /* ProcessInfoUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProcessInfoUtility.h; sourceTree = "<group>"; };
 		48B6D11325EA17AA0050D3EF /* ProcessInfoUtility.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ProcessInfoUtility.c; sourceTree = "<group>"; };
+		48B6D11825EA222B0050D3EF /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
+		48B6D11D25EA24390050D3EF /* ProcessListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListManager.swift; sourceTree = "<group>"; };
 		48E0E56425EA0B5400CC2B17 /* ProcessExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48E0E56925EA0B5400CC2B17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,22 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		48B6D11725EA220F0050D3EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48B6D11825EA222B0050D3EF /* ProcessInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48B6D11C25EA241B0050D3EF /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				48B6D11D25EA24390050D3EF /* ProcessListManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		48E0E55B25EA0B5400CC2B17 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +87,8 @@
 		48E0E56625EA0B5400CC2B17 /* ProcessExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				48B6D11C25EA241B0050D3EF /* DataManager */,
+				48B6D11725EA220F0050D3EF /* Model */,
 				48B6D11025EA17690050D3EF /* Utility */,
 				48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */,
 				48E0E56925EA0B5400CC2B17 /* ViewController.swift */,
@@ -151,6 +173,8 @@
 				48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */,
 				48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */,
 				48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */,
+				48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */,
+				48B6D11E25EA24390050D3EF /* ProcessListManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
