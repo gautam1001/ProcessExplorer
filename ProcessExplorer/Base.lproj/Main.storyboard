@@ -929,7 +929,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="253" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iTt-Vo-zgy">
                                 <rect key="frame" x="73" y="254" width="4" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="4Xv-kd-oGv">
+                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="4Xv-kd-oGv">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -937,7 +937,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fLA-PY-bDx">
                                 <rect key="frame" x="233" y="254" width="189" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="9A2-jE-ENS">
+                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="9A2-jE-ENS">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -977,7 +977,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="253" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-cb-k07">
                                 <rect key="frame" x="109" y="170" width="4" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="rOe-1i-4ic">
+                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="rOe-1i-4ic">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

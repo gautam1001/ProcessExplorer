@@ -18,6 +18,7 @@ class ProcessListViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         ProcessListManager.shared.fetch()
+        updateProcessesLabel()
         ProcessListManager.shared.notifyAppState()
         ProcessListManager.shared.processTerminated = {[weak self] in
             self?.tableView?.reloadData()
@@ -27,7 +28,7 @@ class ProcessListViewController: NSViewController {
             self?.tableView?.reloadData()
             self?.updateProcessesLabel()
         }
-        self.tableView?.doubleAction = #selector(handleDoubleClick)
+        //self.tableView?.doubleAction = #selector(handleDoubleClick)
         
     }
     
@@ -51,22 +52,41 @@ extension ProcessListViewController:NSTableViewDelegate {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "ProcessCell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
             cellView.textField?.stringValue = process.name ?? ""
+            let rowView = cellView.superview as? NSTableRowView
+            rowView?.isSelected = process.isSelected
             return cellView
         } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "pid") {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "PidCell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
             cellView.textField?.integerValue = Int(process.pid)
+            let rowView = cellView.superview as? NSTableRowView
+            rowView?.isSelected = process.isSelected
             return cellView
         } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "path") {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "PathCell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
             cellView.textField?.stringValue = process.path
+            let rowView = cellView.superview as? NSTableRowView
+            rowView?.isSelected = process.isSelected
             return cellView
         }
         let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "UserCell")
         guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
         cellView.textField?.stringValue = process.username
+        let rowView = cellView.superview as? NSTableRowView
+        rowView?.isSelected = process.isSelected
         return cellView
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool{
+        return true
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        guard let selectedRow = self.tableView?.selectedRow else {return}
+        let process = ProcessListManager.shared.processes[selectedRow]
+        ProcessListManager.shared.updateSelection(process.pid)
+        self.delegate?.processSelected(with: process)
     }
 }
 

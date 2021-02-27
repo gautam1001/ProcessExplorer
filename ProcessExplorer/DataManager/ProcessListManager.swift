@@ -30,8 +30,10 @@ class ProcessListManager {
     func fetch(){
         let apps = NSWorkspace.shared.runningApplications
         self.processes = apps.map{ runningApplication in
-            return ProcessInfo(with: runningApplication)
-        }
+            ProcessInfo(with: runningApplication)
+        }.filter({ process in
+            process.pid != -1
+        })
         //if let processlist = self.processes {
             for p in self.processes {
                 print("\(p.name ?? "Unspecified")\npid:\(p.pid)\n\(p.name ?? "")\n\(p.path)\n")
@@ -42,15 +44,35 @@ class ProcessListManager {
     
     @objc private func appLaunched(_ notification: NSNotification){
      print("Launched: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
-        self.fetch()
-        self.processLaunched?()
+        if let runningProcess = notification.userInfo?["NSWorkspaceApplicationKey"] as? NSRunningApplication, !self.processes.contains(where: { p in
+            p.pid == runningProcess.processIdentifier
+        }){
+            self.processes.append(ProcessInfo(with: runningProcess))
+            self.processLaunched?()
+        }
+        
      }
      
      @objc private func appTerminated(_ notification: NSNotification){
          print("Terminated: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
-        self.fetch()
-        self.processTerminated?()
+        if let pid = notification.userInfo?["NSApplicationProcessIdentifier"] as? Int{
+             self.processes.removeAll { p in
+                    p.pid == pid
+            }
+            self.processTerminated?()
+        }
      }
+    
+    func updateSelection(_ pid:pid_t){
+        for p in processes {
+            if p.pid == pid {
+                p.isSelected = true
+            }else{
+                p.isSelected = false
+            }
+        }
+        
+    }
     
     deinit {
         NSWorkspace.shared.notificationCenter.removeObserver(self)
