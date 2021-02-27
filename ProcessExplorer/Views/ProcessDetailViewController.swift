@@ -7,8 +7,14 @@
 
 import Cocoa
 
-class ProcessDetailViewController: NSViewController {
+protocol ProcessDetailDelegate:class{
+    func showDetail(with info:ProcessInfo)
+}
 
+class ProcessDetailViewController: NSViewController {
+    
+    weak var delegate:ProcessDetailDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

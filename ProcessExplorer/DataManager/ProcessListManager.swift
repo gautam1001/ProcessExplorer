@@ -12,9 +12,9 @@ class ProcessListManager {
     
     static let shared = ProcessListManager()
     
-    var processes:[ProcessInfo]?
+    var processes:[ProcessInfo] = []
     var count:Int {
-        return self.processes?.count ?? 0
+        return self.processes.count
     }
     
     private init(){}
@@ -24,12 +24,12 @@ class ProcessListManager {
         self.processes = apps.map{ runningApplication in
             return ProcessInfo(with: runningApplication)
         }
-        if let processlist = self.processes {
-            for p in processlist {
+        //if let processlist = self.processes {
+            for p in self.processes {
                 print("\(p.name ?? "Unspecified")\npid:\(p.pid)\n\(p.name ?? "")\n\(p.path)\n")
                 print("*-----------------*-----------------*----------------------*\n")
             }
-        }
+        //}
         
     }
     

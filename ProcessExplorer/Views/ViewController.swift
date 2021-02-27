@@ -6,15 +6,13 @@
 //
 
 import Cocoa
+import AppKit
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var splitView:NSSplitView?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //self.fetchProcesses()
-        //ProcessListManager.shared.fetch()
+    
     }
 
     override var representedObject: Any? {
@@ -22,22 +20,5 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-    
-    /*private func fetchProcesses(){
-        let workspace = NSWorkspace.shared
-        let applications = workspace.runningApplications
-
-        for app in applications {
-            print("\(app.localizedName ?? "Unspecified") \npid:\(app.processIdentifier) \n\(app.bundleURL?.absoluteString ?? "")")
-            let uid = uidFromPid(app.processIdentifier)
-            print("user id: \(uid)")
-            if let p = getpwuid(uid){
-                print("user name: \(String(cString: p.pointee.pw_name))")
-            }
-            print("========================================")
-        }
-    }*/
-
-
 }
 
