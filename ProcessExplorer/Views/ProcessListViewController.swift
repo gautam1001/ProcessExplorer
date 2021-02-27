@@ -29,7 +29,7 @@ class ProcessListViewController: NSViewController {
             self?.updateProcessesLabel()
         }
         //self.tableView?.doubleAction = #selector(handleDoubleClick)
-        
+        //setSortDescriptor()
     }
     
     @objc func handleDoubleClick(){
@@ -40,6 +40,13 @@ class ProcessListViewController: NSViewController {
     
     func updateProcessesLabel(){
         self.processesLabel?.stringValue = ProcessListManager.shared.count > 1 ? "Processes: \(ProcessListManager.shared.count) " : "Process: \(ProcessListManager.shared.count) "
+    }
+    
+
+    func setSortDescriptor() {
+        let nameDesc = NSSortDescriptor(key: "process", ascending: true)
+        
+        self.tableView?.tableColumns[0].sortDescriptorPrototype = nameDesc
     }
 }
 
@@ -83,7 +90,7 @@ extension ProcessListViewController:NSTableViewDelegate {
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        guard let selectedRow = self.tableView?.selectedRow else {return}
+        guard let selectedRow = self.tableView?.selectedRow, selectedRow >= 0 else {return}
         let process = ProcessListManager.shared.processes[selectedRow]
         ProcessListManager.shared.updateSelection(process.pid)
         self.delegate?.processSelected(with: process)
@@ -93,5 +100,11 @@ extension ProcessListViewController:NSTableViewDelegate {
 extension ProcessListViewController:NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return ProcessListManager.shared.count
+    }
+    
+    func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        guard let sortDescriptor = tableView.sortDescriptors.first else { return }
+        ProcessListManager.shared.sortProcesses(sortDescriptor)
+        tableView.reloadData()
     }
 }

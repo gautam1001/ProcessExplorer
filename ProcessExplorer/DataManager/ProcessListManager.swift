@@ -74,6 +74,18 @@ class ProcessListManager {
         
     }
     
+    func sortProcesses(_ descriptor:NSSortDescriptor){
+        if descriptor.key == "process"{
+            self.processes.sort { (p1, p2)  in
+                (p1.name ?? "").caseInsensitiveCompare(p2.name ?? "") == (descriptor.ascending ? .orderedAscending : .orderedDescending)
+            }
+        }else{
+            self.processes.sort { (p1, p2)  in
+                descriptor.ascending ? p2.pid > p1.pid : p1.pid > p2.pid 
+            }
+        }
+    }
+    
     deinit {
         NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
