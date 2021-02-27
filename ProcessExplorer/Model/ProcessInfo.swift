@@ -26,6 +26,10 @@ class ProcessInfo {
         return cred.uid
     }
     
+    var bundleId:String {
+        return process.bundleIdentifier ?? ""
+    }
+    
     var username:String {
         if let p = getpwuid(cred.uid){
            return String(cString: p.pointee.pw_name)

@@ -11,12 +11,22 @@ protocol ProcessActionDelegate:class{
 }
 class ProcessListViewController: NSViewController {
     @IBOutlet weak var tableView:NSTableView?
+    @IBOutlet weak var processesLabel:NSTextField?
     weak var delegate:ProcessActionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         ProcessListManager.shared.fetch()
+        ProcessListManager.shared.notifyAppState()
+        ProcessListManager.shared.processTerminated = {[weak self] in
+            self?.tableView?.reloadData()
+            self?.updateProcessesLabel()
+        }
+        ProcessListManager.shared.processLaunched = {[weak self] in
+            self?.tableView?.reloadData()
+            self?.updateProcessesLabel()
+        }
         self.tableView?.doubleAction = #selector(handleDoubleClick)
         
     }
@@ -25,6 +35,10 @@ class ProcessListViewController: NSViewController {
         guard let clickedRow = self.tableView?.clickedRow else {return}
         let process = ProcessListManager.shared.processes[clickedRow]
         self.delegate?.processSelected(with: process)
+    }
+    
+    func updateProcessesLabel(){
+        self.processesLabel?.stringValue = ProcessListManager.shared.count > 1 ? "Processes: \(ProcessListManager.shared.count) " : "Process: \(ProcessListManager.shared.count) "
     }
 }
 

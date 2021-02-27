@@ -16,8 +16,16 @@ class ProcessListManager {
     var count:Int {
         return self.processes.count
     }
+    var processTerminated:(()->())? //= nil
+    var processLaunched:(()->())? //= nil
     
-    private init(){}
+    private init(){ }
+    
+    func notifyAppState(){
+        let notificationCenter: NotificationCenter = NSWorkspace.shared.notificationCenter
+        notificationCenter.addObserver(self, selector: #selector(appLaunched(_:)), name: NSWorkspace.didLaunchApplicationNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appTerminated(_:)), name: NSWorkspace.didTerminateApplicationNotification, object: nil)
+    }
     
     func fetch(){
         let apps = NSWorkspace.shared.runningApplications
@@ -30,7 +38,22 @@ class ProcessListManager {
                 print("*-----------------*-----------------*----------------------*\n")
             }
         //}
-        
+    }
+    
+    @objc private func appLaunched(_ notification: NSNotification){
+     print("Launched: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
+        self.fetch()
+        self.processLaunched?()
+     }
+     
+     @objc private func appTerminated(_ notification: NSNotification){
+         print("Terminated: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
+        self.fetch()
+        self.processTerminated?()
+     }
+    
+    deinit {
+        NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
     
 }
