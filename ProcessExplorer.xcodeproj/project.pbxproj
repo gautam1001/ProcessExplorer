@@ -13,9 +13,9 @@
 		48B6D12325EA354C0050D3EF /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D12225EA354C0050D3EF /* ProcessListViewController.swift */; };
 		48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */; };
 		48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */; };
-		48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56925EA0B5400CC2B17 /* ViewController.swift */; };
 		48E0E56C25EA0B5500CC2B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */; };
 		48E0E56F25EA0B5500CC2B17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56D25EA0B5500CC2B17 /* Main.storyboard */; };
+		48E8F5B425EA77970000A20B /* ProcessExplorerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +28,11 @@
 		48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessDetailViewController.swift; sourceTree = "<group>"; };
 		48E0E56425EA0B5400CC2B17 /* ProcessExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48E0E56925EA0B5400CC2B17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48E0E56E25EA0B5500CC2B17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48E0E57025EA0B5500CC2B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48E0E57125EA0B5500CC2B17 /* ProcessExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProcessExplorer.entitlements; sourceTree = "<group>"; };
+		48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessExplorerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 		48B6D12125EA34FE0050D3EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				48E0E56925EA0B5400CC2B17 /* ViewController.swift */,
+				48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */,
 				48B6D12225EA354C0050D3EF /* ProcessListViewController.swift */,
 				48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */,
 			);
@@ -185,11 +185,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */,
-				48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */,
 				48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */,
 				48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */,
 				48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */,
 				48B6D12325EA354C0050D3EF /* ProcessListViewController.swift in Sources */,
+				48E8F5B425EA77970000A20B /* ProcessExplorerController.swift in Sources */,
 				48B6D11E25EA24390050D3EF /* ProcessListManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

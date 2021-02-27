@@ -7,17 +7,28 @@
 
 import Cocoa
 
-protocol ProcessDetailDelegate:class{
-    func showDetail(with info:ProcessInfo)
-}
+
 
 class ProcessDetailViewController: NSViewController {
     
-    weak var delegate:ProcessDetailDelegate?
+    @IBOutlet weak var pidValueLabel: NSTextField!
+    @IBOutlet weak var parentValueLabel: NSTextField!
+    @IBOutlet weak var pathValueLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        if let explorerController = self.parent as? ProcessExplorerController, let list = explorerController.splitViewItems.first?.viewController as? ProcessListViewController {
+            list.delegate = self
+        }
     }
-    
+}
+
+extension ProcessDetailViewController:ProcessActionDelegate{
+   
+    func processSelected(with info:ProcessInfo){
+        pidValueLabel.intValue = info.pid
+        parentValueLabel.intValue = 0
+        pathValueLabel.stringValue = info.path
+    }
 }

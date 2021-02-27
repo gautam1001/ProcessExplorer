@@ -6,15 +6,25 @@
 //
 
 import Cocoa
-
+protocol ProcessActionDelegate:class{
+    func processSelected(with info:ProcessInfo)
+}
 class ProcessListViewController: NSViewController {
     @IBOutlet weak var tableView:NSTableView?
+    weak var delegate:ProcessActionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         ProcessListManager.shared.fetch()
+        self.tableView?.doubleAction = #selector(handleDoubleClick)
         
+    }
+    
+    @objc func handleDoubleClick(){
+        guard let clickedRow = self.tableView?.clickedRow else {return}
+        let process = ProcessListManager.shared.processes[clickedRow]
+        self.delegate?.processSelected(with: process)
     }
 }
 
