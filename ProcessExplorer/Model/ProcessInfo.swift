@@ -10,21 +10,24 @@ import Cocoa
 
 class ProcessInfo {
     private let process:NSRunningApplication
+    
+    private let cred:process_cred
+    
     var isSelected:Bool = false
+    
     var name:String? {
         return process.localizedName
     }
     var pid:Int32 {
         return process.processIdentifier
     }
+
     var userid:UInt32 {
-        let uid = uidFromPid(self.process.processIdentifier)
-        return uid
+        return cred.uid
     }
     
     var username:String {
-        let uid = uidFromPid(self.process.processIdentifier)
-        if let p = getpwuid(uid){
+        if let p = getpwuid(cred.uid){
            return String(cString: p.pointee.pw_name)
         }
         return ""
@@ -34,7 +37,12 @@ class ProcessInfo {
         return "\(self.process.executableURL?.absoluteString ?? "")"
     }
     
+    var ppid:Int32 {
+        return cred.ppid
+    }
+    
     init(with process:NSRunningApplication) {
         self.process = process
+        self.cred = processCred(self.process.processIdentifier)
     }
 }

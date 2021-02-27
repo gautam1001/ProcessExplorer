@@ -9,5 +9,11 @@
 #define ProcessInfoUtility_h
 
 #include <stdio.h>
-uid_t uidFromPid(pid_t pid);
+struct process_cred {
+    uid_t uid;
+    pid_t ppid;
+};
+
+struct process_cred processCred(pid_t pid);
+
 #endif /* ProcessInfoUtility_h */

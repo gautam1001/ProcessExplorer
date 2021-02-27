@@ -13,6 +13,7 @@ class ProcessDetailViewController: NSViewController {
     
     @IBOutlet weak var pidValueLabel: NSTextField!
     @IBOutlet weak var parentValueLabel: NSTextField!
+    //@IBOutlet weak var pathValueLabel: NSTextField!
     @IBOutlet weak var pathValueLabel: NSTextField!
     
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ extension ProcessDetailViewController:ProcessActionDelegate{
    
     func processSelected(with info:ProcessInfo){
         pidValueLabel.intValue = info.pid
-        parentValueLabel.intValue = 0
+        parentValueLabel.intValue = info.ppid
         pathValueLabel.stringValue = info.path
     }
 }

@@ -935,10 +935,10 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gad-Tc-nmM">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="jCh-bW-zAP">
                                 <rect key="frame" x="104" y="208" width="318" height="16"/>
-                                <textFieldCell key="cell" title="505" id="q55-B3-sHj">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="uUn-5W-Ffh">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -948,22 +948,22 @@
                             <constraint firstItem="wI4-ps-LoH" firstAttribute="leading" secondItem="iTt-Vo-zgy" secondAttribute="trailing" constant="80" id="1WT-Fp-saP"/>
                             <constraint firstItem="QBV-yR-wbQ" firstAttribute="top" secondItem="SPC-34-MyT" secondAttribute="top" constant="30" id="4f0-fm-NgS"/>
                             <constraint firstItem="fLA-PY-bDx" firstAttribute="centerY" secondItem="wI4-ps-LoH" secondAttribute="centerY" id="8U1-JC-x1U"/>
-                            <constraint firstAttribute="trailing" secondItem="gad-Tc-nmM" secondAttribute="trailing" constant="30" id="Ety-Re-cTA"/>
                             <constraint firstItem="dJY-SE-3bF" firstAttribute="top" secondItem="QBV-yR-wbQ" secondAttribute="bottom" constant="30" id="FON-zS-Jxe"/>
+                            <constraint firstItem="jCh-bW-zAP" firstAttribute="leading" secondItem="dJY-SE-3bF" secondAttribute="trailing" constant="20" id="Gmw-3D-pdk"/>
                             <constraint firstItem="wI4-ps-LoH" firstAttribute="top" secondItem="SPC-34-MyT" secondAttribute="top" constant="30" id="IU5-I9-wbc"/>
                             <constraint firstItem="fLA-PY-bDx" firstAttribute="leading" secondItem="wI4-ps-LoH" secondAttribute="trailing" constant="20" id="Pmt-dx-Pao"/>
                             <constraint firstAttribute="trailing" secondItem="fLA-PY-bDx" secondAttribute="trailing" constant="30" id="VGN-VL-iDp"/>
                             <constraint firstItem="dJY-SE-3bF" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="30" id="ZaQ-de-d7g"/>
                             <constraint firstItem="iTt-Vo-zgy" firstAttribute="centerY" secondItem="QBV-yR-wbQ" secondAttribute="centerY" id="anc-so-3qI"/>
-                            <constraint firstItem="gad-Tc-nmM" firstAttribute="leading" secondItem="dJY-SE-3bF" secondAttribute="trailing" constant="20" id="jsg-9o-Yde"/>
-                            <constraint firstItem="gad-Tc-nmM" firstAttribute="centerY" secondItem="dJY-SE-3bF" secondAttribute="centerY" id="kVd-e5-lok"/>
+                            <constraint firstItem="jCh-bW-zAP" firstAttribute="top" secondItem="dJY-SE-3bF" secondAttribute="top" id="b0C-la-kc0"/>
                             <constraint firstItem="QBV-yR-wbQ" firstAttribute="leading" secondItem="SPC-34-MyT" secondAttribute="leading" constant="30" id="t5i-fi-o0P"/>
                             <constraint firstItem="iTt-Vo-zgy" firstAttribute="leading" secondItem="QBV-yR-wbQ" secondAttribute="trailing" constant="20" id="v9s-D5-Vvg"/>
+                            <constraint firstAttribute="trailing" secondItem="jCh-bW-zAP" secondAttribute="trailing" constant="30" id="vG7-PJ-VSZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="parentValueLabel" destination="fLA-PY-bDx" id="2jJ-Y5-UMc"/>
-                        <outlet property="pathValueLabel" destination="gad-Tc-nmM" id="S5w-W9-EVW"/>
+                        <outlet property="pathValueLabel" destination="jCh-bW-zAP" id="4Xq-zZ-ajz"/>
                         <outlet property="pidValueLabel" destination="iTt-Vo-zgy" id="y8N-uA-w0D"/>
                     </connections>
                 </viewController>
