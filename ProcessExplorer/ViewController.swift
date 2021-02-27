@@ -28,9 +28,12 @@ class ViewController: NSViewController {
 
         for app in applications {
             print("\(app.localizedName ?? "Unspecified") \npid:\(app.processIdentifier) \n\(app.bundleURL?.absoluteString ?? "")")
-           
+            let uid = uidFromPid(app.processIdentifier)
+            print("user id: \(uid)")
+            if let p = getpwuid(uid){
+                print("user name: \(String(cString: p.pointee.pw_name))")
+            }
             print("========================================")
-    
         }
     }
 
