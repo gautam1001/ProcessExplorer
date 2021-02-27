@@ -13,7 +13,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.fetchProcesses()
+        //self.fetchProcesses()
+        //ProcessListManager.shared.fetch()
     }
 
     override var representedObject: Any? {
@@ -22,7 +23,7 @@ class ViewController: NSViewController {
         }
     }
     
-    private func fetchProcesses(){
+    /*private func fetchProcesses(){
         let workspace = NSWorkspace.shared
         let applications = workspace.runningApplications
 
@@ -35,7 +36,7 @@ class ViewController: NSViewController {
             }
             print("========================================")
         }
-    }
+    }*/
 
 
 }

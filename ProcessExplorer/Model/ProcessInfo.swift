@@ -11,6 +11,9 @@ import Cocoa
 class ProcessInfo {
     private let process:NSRunningApplication
     var isSelected:Bool = false
+    var name:String? {
+        return process.localizedName
+    }
     var pid:Int32 {
         return process.processIdentifier
     }

@@ -10,6 +10,8 @@
 		48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11325EA17AA0050D3EF /* ProcessInfoUtility.c */; };
 		48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11825EA222B0050D3EF /* ProcessInfo.swift */; };
 		48B6D11E25EA24390050D3EF /* ProcessListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D11D25EA24390050D3EF /* ProcessListManager.swift */; };
+		48B6D12325EA354C0050D3EF /* ProcessListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D12225EA354C0050D3EF /* ProcessListViewController.swift */; };
+		48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */; };
 		48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */; };
 		48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E0E56925EA0B5400CC2B17 /* ViewController.swift */; };
 		48E0E56C25EA0B5500CC2B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		48B6D11325EA17AA0050D3EF /* ProcessInfoUtility.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ProcessInfoUtility.c; sourceTree = "<group>"; };
 		48B6D11825EA222B0050D3EF /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
 		48B6D11D25EA24390050D3EF /* ProcessListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListManager.swift; sourceTree = "<group>"; };
+		48B6D12225EA354C0050D3EF /* ProcessListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListViewController.swift; sourceTree = "<group>"; };
+		48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessDetailViewController.swift; sourceTree = "<group>"; };
 		48E0E56425EA0B5400CC2B17 /* ProcessExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48E0E56925EA0B5400CC2B17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,16 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		48B6D12125EA34FE0050D3EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				48E0E56925EA0B5400CC2B17 /* ViewController.swift */,
+				48B6D12225EA354C0050D3EF /* ProcessListViewController.swift */,
+				48B6D12625EA35720050D3EF /* ProcessDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		48E0E55B25EA0B5400CC2B17 = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +101,11 @@
 		48E0E56625EA0B5400CC2B17 /* ProcessExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				48B6D12125EA34FE0050D3EF /* Views */,
 				48B6D11C25EA241B0050D3EF /* DataManager */,
 				48B6D11725EA220F0050D3EF /* Model */,
 				48B6D11025EA17690050D3EF /* Utility */,
 				48E0E56725EA0B5400CC2B17 /* AppDelegate.swift */,
-				48E0E56925EA0B5400CC2B17 /* ViewController.swift */,
 				48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */,
 				48E0E56D25EA0B5500CC2B17 /* Main.storyboard */,
 				48E0E57025EA0B5500CC2B17 /* Info.plist */,
@@ -170,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */,
 				48E0E56A25EA0B5400CC2B17 /* ViewController.swift in Sources */,
 				48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */,
 				48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */,
 				48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */,
+				48B6D12325EA354C0050D3EF /* ProcessListViewController.swift in Sources */,
 				48B6D11E25EA24390050D3EF /* ProcessListManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
