@@ -11,17 +11,19 @@ import Cocoa
 protocol ProcessStatusDelegate:class{
     func processTerminated(_ pid:pid_t)
 }
+
 class ProcessListManager {
     
     static let shared = ProcessListManager()
     
     var processes:[ProcessInfo] = []
     var count:Int {
-        return self.processes.count
+       return self.processes.count
     }
-    //var processTerminated:((pid_t)->())? //= nil
+    
     var processLaunched:(()->())? //= nil
     var delegates = MulticastDelegate<ProcessStatusDelegate>()
+    
     private init(){ }
     
     func notifyAppState(){

@@ -7,11 +7,7 @@
 
 import Cocoa
 
+/// Parent class of left and right containers
 class ProcessExplorerController: NSSplitViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
 }

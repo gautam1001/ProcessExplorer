@@ -7,10 +7,9 @@
 
 import Cocoa
 
-
+/// View controller to show the details of selected process.
 
 class ProcessDetailViewController: NSViewController {
-  
     
     @IBOutlet weak var pidValueLabel: NSTextField!
     @IBOutlet weak var parentValueLabel: NSTextField!
@@ -25,18 +24,21 @@ class ProcessDetailViewController: NSViewController {
     }
     
     private func setActionDelegate(){
+        // Access process list panel from parent controller i.e; "ProcessExplorerController"
         if let explorerController = self.parent as? ProcessExplorerController, let list = explorerController.splitViewItems.first?.viewController as? ProcessListViewController {
             list.delegate = self
         }
         ProcessListManager.shared.delegates.add(self)
     }
     
+    // Quit button action
     @IBAction func quitProcess(_ sender:Any){
         guard let pid = self.process?.pid else {return}
         ProcessListManager.shared.killProcess(pid: pid)
         self.resetData()
     }
     
+    // Reset UI to initial/unselected state
     func resetData(){
         pidValueLabel.stringValue = ""
         parentValueLabel.stringValue = ""
@@ -50,7 +52,7 @@ class ProcessDetailViewController: NSViewController {
     }
 }
 
-extension ProcessDetailViewController:ProcessActionDelegate, ProcessStatusDelegate{
+extension ProcessDetailViewController:ProcessActionDelegate{
    
     func processSelected(with info:ProcessInfo){
         self.process = info
@@ -60,7 +62,9 @@ extension ProcessDetailViewController:ProcessActionDelegate, ProcessStatusDelega
         self.bundleIdLabel.stringValue = info.bundleId
         self.quitButton.isEnabled = true
     }
-    
+}
+
+extension ProcessDetailViewController: ProcessStatusDelegate{
     func processTerminated(_ pid: pid_t) {
         guard let selectedProcess = self.process else {
             self.resetData()
@@ -70,5 +74,4 @@ extension ProcessDetailViewController:ProcessActionDelegate, ProcessStatusDelega
             self.resetData()
         }
     }
-    
 }

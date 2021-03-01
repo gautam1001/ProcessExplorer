@@ -11,7 +11,7 @@ protocol ProcessActionDelegate:class{
     func processSelected(with info:ProcessInfo)
 }
 
-
+/// View controller to show the  running process list
 class ProcessListViewController: NSViewController {
     @IBOutlet weak var tableView:NSTableView?
     @IBOutlet weak var processesLabel:NSTextField?
@@ -44,8 +44,9 @@ class ProcessListViewController: NSViewController {
     }
 }
 
+//MARK: Tableview Delegate
 extension ProcessListViewController:NSTableViewDelegate {
-    
+    // Method invoked for table data upload ...
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let process = ProcessListManager.shared.processes[row]
         if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "processname") {
@@ -70,6 +71,7 @@ extension ProcessListViewController:NSTableViewDelegate {
         return true
     }
     
+    // Method invoked when a process is selected ...
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard let selectedRow = self.tableView?.selectedRow, selectedRow >= 0 else {return}
         let process = ProcessListManager.shared.processes[selectedRow]
@@ -78,20 +80,13 @@ extension ProcessListViewController:NSTableViewDelegate {
     }
 }
 
-extension ProcessListViewController: ProcessStatusDelegate{
-   
-    func processTerminated(_ pid: pid_t) {
-        self.tableView?.reloadData()
-        self.updateProcessesLabel()
-    }
-    
-}
-
+//MARK: Tableview DataSource
 extension ProcessListViewController:NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return ProcessListManager.shared.count
     }
     
+    // Method invoked when the column is selected i.e; 'Process' or 'PID'
     func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
         guard let sortDescriptor = tableView.sortDescriptors.first else { return }
         ProcessListManager.shared.sortProcesses(sortDescriptor)
@@ -99,20 +94,12 @@ extension ProcessListViewController:NSTableViewDataSource {
     }
 }
 
-
-extension NSTableView {
-    
-    func makeCellView(type: String) -> NSTableCellView?{
-       let viewIdentifier = NSUserInterfaceItemIdentifier(rawValue: type)
-       return makeView(withIdentifier: viewIdentifier, owner: self) as? NSTableCellView
+//MARK: ProcessStatusDelegate
+extension ProcessListViewController: ProcessStatusDelegate{
+    // Method invoked a process is terminated
+    func processTerminated(_ pid: pid_t) {
+        self.tableView?.reloadData()
+        self.updateProcessesLabel()
     }
-}
-
-class ProcessCellView:NSTableCellView {
     
-    func populateUI(with info:String, isSelected:Bool = false){
-        self.textField?.stringValue = info
-        let rowView = self.superview as? NSTableRowView
-        rowView?.isSelected = isSelected
-    }
 }

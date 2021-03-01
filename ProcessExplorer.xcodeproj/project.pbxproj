@@ -18,6 +18,7 @@
 		48E8F5B425EA77970000A20B /* ProcessExplorerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */; };
 		48EB7E0425ED440500CD106C /* ProcessListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB7E0325ED440500CD106C /* ProcessListManagerTests.swift */; };
 		48EB7E0F25ED62E300CD106C /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB7E0E25ED62E300CD106C /* MulticastDelegate.swift */; };
+		48EB7E1725ED74F200CD106C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB7E1625ED74F200CD106C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		48EB7DFB25ED2E5C00CD106C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48EB7E0325ED440500CD106C /* ProcessListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListManagerTests.swift; sourceTree = "<group>"; };
 		48EB7E0E25ED62E300CD106C /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		48EB7E1625ED74F200CD106C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		48E0E56625EA0B5400CC2B17 /* ProcessExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				48EB7E1525ED74CD00CD106C /* Extentions */,
 				48B6D12125EA34FE0050D3EF /* Views */,
 				48B6D11C25EA241B0050D3EF /* DataManager */,
 				48B6D11725EA220F0050D3EF /* Model */,
@@ -147,6 +150,14 @@
 				48EB7DFB25ED2E5C00CD106C /* Info.plist */,
 			);
 			path = ProcessExplorerTests;
+			sourceTree = "<group>";
+		};
+		48EB7E1525ED74CD00CD106C /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				48EB7E1625ED74F200CD106C /* Extensions.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */,
+				48EB7E1725ED74F200CD106C /* Extensions.swift in Sources */,
 				48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */,
 				48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */,
 				48EB7E0F25ED62E300CD106C /* MulticastDelegate.swift in Sources */,

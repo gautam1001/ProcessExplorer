@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Class to notify more than one object i.e; one to many broadcast
 class MulticastDelegate<T> {
     private var delegates = [Weak]()
     

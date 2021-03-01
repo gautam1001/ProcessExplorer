@@ -13,7 +13,7 @@ struct process_cred {
     uid_t uid;
     pid_t ppid;
 };
-
+// Get process credentials which are not present in NSRunningapplication instance
 struct process_cred processCred(pid_t pid);
 
 #endif /* ProcessInfoUtility_h */
