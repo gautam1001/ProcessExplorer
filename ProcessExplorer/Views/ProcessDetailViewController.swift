@@ -19,7 +19,10 @@ class ProcessDetailViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        self.setActionDelegate()
+    }
+    
+    private func setActionDelegate(){
         if let explorerController = self.parent as? ProcessExplorerController, let list = explorerController.splitViewItems.first?.viewController as? ProcessListViewController {
             list.delegate = self
         }
@@ -38,10 +41,10 @@ class ProcessDetailViewController: NSViewController {
 extension ProcessDetailViewController:ProcessActionDelegate{
    
     func processSelected(with info:ProcessInfo){
-        process = info
-        pidValueLabel.intValue = info.pid
-        parentValueLabel.intValue = info.ppid
-        pathValueLabel.stringValue = info.path
-        bundleIdLabel.stringValue = info.bundleId
+        self.process = info
+        self.pidValueLabel.intValue = info.pid
+        self.parentValueLabel.intValue = info.ppid
+        self.pathValueLabel.stringValue = info.path
+        self.bundleIdLabel.stringValue = info.bundleId
     }
 }

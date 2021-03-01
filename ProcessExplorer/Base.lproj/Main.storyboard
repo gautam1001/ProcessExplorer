@@ -755,7 +755,7 @@
                                                     <sortDescriptor key="sortDescriptorPrototype" selector="localizedCaseInsensitiveCompare:" sortKey="process"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="ProcessCell" id="dDT-t5-tjX">
+                                                        <tableCellView identifier="ProcessCell" id="dDT-t5-tjX" customClass="ProcessCellView" customModule="ProcessExplorer" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="0.0" width="148" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -788,7 +788,7 @@
                                                     <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="pid"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="PidCell" id="bay-pS-DK4">
+                                                        <tableCellView identifier="PidCell" id="bay-pS-DK4" customClass="ProcessCellView" customModule="ProcessExplorer" customModuleProvider="target">
                                                             <rect key="frame" x="183" y="0.0" width="100" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -820,7 +820,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="PathCell" id="Bmw-0L-WzF">
+                                                        <tableCellView identifier="PathCell" id="Bmw-0L-WzF" customClass="ProcessCellView" customModule="ProcessExplorer" customModuleProvider="target">
                                                             <rect key="frame" x="300" y="0.0" width="200" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -852,7 +852,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="UserCell" id="Mkn-XD-MHq">
+                                                        <tableCellView identifier="UserCell" id="Mkn-XD-MHq" customClass="ProcessCellView" customModule="ProcessExplorer" customModuleProvider="target">
                                                             <rect key="frame" x="517" y="0.0" width="97" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
