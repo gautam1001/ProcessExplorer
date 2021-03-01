@@ -988,7 +988,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y5c-0D-GUk">
                                 <rect key="frame" x="33" y="13" width="60" height="32"/>
-                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="44c-c0-0By">
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="44c-c0-0By">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1025,6 +1025,7 @@
                         <outlet property="parentValueLabel" destination="fLA-PY-bDx" id="2jJ-Y5-UMc"/>
                         <outlet property="pathValueLabel" destination="jCh-bW-zAP" id="4Xq-zZ-ajz"/>
                         <outlet property="pidValueLabel" destination="iTt-Vo-zgy" id="y8N-uA-w0D"/>
+                        <outlet property="quitButton" destination="y5c-0D-GUk" id="yOg-Nc-OrL"/>
                     </connections>
                 </viewController>
                 <customObject id="u40-mE-VQ6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

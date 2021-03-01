@@ -8,6 +8,9 @@
 import Foundation
 import Cocoa
 
+protocol ProcessStatusDelegate:class{
+    func processTerminated(_ pid:pid_t)
+}
 class ProcessListManager {
     
     static let shared = ProcessListManager()
@@ -16,9 +19,9 @@ class ProcessListManager {
     var count:Int {
         return self.processes.count
     }
-    var processTerminated:(()->())? //= nil
+    //var processTerminated:((pid_t)->())? //= nil
     var processLaunched:(()->())? //= nil
-    
+    var delegates = MulticastDelegate<ProcessStatusDelegate>()
     private init(){ }
     
     func notifyAppState(){
@@ -34,16 +37,9 @@ class ProcessListManager {
         }.filter({ process in
             process.pid != -1
         })
-        //if let processlist = self.processes {
-            for p in self.processes {
-                print("\(p.name ?? "Unspecified")\npid:\(p.pid)\n\(p.name ?? "")\n\(p.path)\n")
-                print("*-----------------*-----------------*----------------------*\n")
-            }
-        //}
     }
     
     @objc private func appLaunched(_ notification: NSNotification){
-     print("Launched: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
         if let runningProcess = notification.userInfo?["NSWorkspaceApplicationKey"] as? NSRunningApplication, !self.processes.contains(where: { p in
             p.pid == runningProcess.processIdentifier
         }){
@@ -51,17 +47,18 @@ class ProcessListManager {
             self.processLaunched?()
         }
         
-     }
-     
-     @objc private func appTerminated(_ notification: NSNotification){
-         print("Terminated: \(notification.userInfo?["NSApplicationName"] ?? "") pid: \(notification.userInfo?["NSApplicationProcessIdentifier"] ?? "")")
-        if let pid = notification.userInfo?["NSApplicationProcessIdentifier"] as? Int{
-             self.processes.removeAll { p in
-                    p.pid == pid
+    }
+    
+    @objc private func appTerminated(_ notification: NSNotification){
+        if let pid = notification.userInfo?["NSApplicationProcessIdentifier"] as? pid_t{
+            self.processes.removeAll { p in
+                p.pid == pid
             }
-            self.processTerminated?()
+            delegates.invoke { obj in
+                obj.processTerminated(pid)
+            }
         }
-     }
+    }
     
     func updateSelection(_ pid:pid_t){
         for p in processes {
@@ -71,7 +68,6 @@ class ProcessListManager {
                 p.isSelected = false
             }
         }
-        
     }
     
     func sortProcesses(_ descriptor:NSSortDescriptor){
@@ -90,9 +86,12 @@ class ProcessListManager {
         if let index = processes.firstIndex (where: { $0.pid == pid }){
             if processes[index].runningProcess.terminate(){
                 self.processes.removeAll { p in
-                       p.pid == pid
-               }
-                self.processTerminated?()
+                    p.pid == pid
+                }
+                //self.processTerminated?(pid)
+                delegates.invoke { obj in
+                    obj.processTerminated(pid)
+                }
             }
         }
         

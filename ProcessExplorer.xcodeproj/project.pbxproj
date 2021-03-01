@@ -16,7 +16,19 @@
 		48E0E56C25EA0B5500CC2B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56B25EA0B5500CC2B17 /* Assets.xcassets */; };
 		48E0E56F25EA0B5500CC2B17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48E0E56D25EA0B5500CC2B17 /* Main.storyboard */; };
 		48E8F5B425EA77970000A20B /* ProcessExplorerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */; };
+		48EB7E0425ED440500CD106C /* ProcessListManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB7E0325ED440500CD106C /* ProcessListManagerTests.swift */; };
+		48EB7E0F25ED62E300CD106C /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB7E0E25ED62E300CD106C /* MulticastDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48EB7DFC25ED2E5C00CD106C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48E0E55C25EA0B5400CC2B17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48E0E56325EA0B5400CC2B17;
+			remoteInfo = ProcessExplorer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		48B6D11125EA17AA0050D3EF /* ProcessExplorer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProcessExplorer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -33,10 +45,21 @@
 		48E0E57025EA0B5500CC2B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48E0E57125EA0B5500CC2B17 /* ProcessExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProcessExplorer.entitlements; sourceTree = "<group>"; };
 		48E8F5B325EA77970000A20B /* ProcessExplorerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessExplorerController.swift; sourceTree = "<group>"; };
+		48EB7DF725ED2E5C00CD106C /* ProcessExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProcessExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48EB7DFB25ED2E5C00CD106C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48EB7E0325ED440500CD106C /* ProcessListManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessListManagerTests.swift; sourceTree = "<group>"; };
+		48EB7E0E25ED62E300CD106C /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		48E0E56125EA0B5400CC2B17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48EB7DF425ED2E5C00CD106C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +72,7 @@
 		48B6D11025EA17690050D3EF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				48EB7E0E25ED62E300CD106C /* MulticastDelegate.swift */,
 				48B6D11225EA17AA0050D3EF /* ProcessInfoUtility.h */,
 				48B6D11325EA17AA0050D3EF /* ProcessInfoUtility.c */,
 				48B6D11125EA17AA0050D3EF /* ProcessExplorer-Bridging-Header.h */,
@@ -86,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				48E0E56625EA0B5400CC2B17 /* ProcessExplorer */,
+				48EB7DF825ED2E5C00CD106C /* ProcessExplorerTests */,
 				48E0E56525EA0B5400CC2B17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				48E0E56425EA0B5400CC2B17 /* ProcessExplorer.app */,
+				48EB7DF725ED2E5C00CD106C /* ProcessExplorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +138,15 @@
 				48E0E57125EA0B5500CC2B17 /* ProcessExplorer.entitlements */,
 			);
 			path = ProcessExplorer;
+			sourceTree = "<group>";
+		};
+		48EB7DF825ED2E5C00CD106C /* ProcessExplorerTests */ = {
+			isa = PBXGroup;
+			children = (
+				48EB7E0325ED440500CD106C /* ProcessListManagerTests.swift */,
+				48EB7DFB25ED2E5C00CD106C /* Info.plist */,
+			);
+			path = ProcessExplorerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +169,24 @@
 			productReference = 48E0E56425EA0B5400CC2B17 /* ProcessExplorer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		48EB7DF625ED2E5C00CD106C /* ProcessExplorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48EB7E0025ED2E5C00CD106C /* Build configuration list for PBXNativeTarget "ProcessExplorerTests" */;
+			buildPhases = (
+				48EB7DF325ED2E5C00CD106C /* Sources */,
+				48EB7DF425ED2E5C00CD106C /* Frameworks */,
+				48EB7DF525ED2E5C00CD106C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48EB7DFD25ED2E5C00CD106C /* PBXTargetDependency */,
+			);
+			name = ProcessExplorerTests;
+			productName = ProcessExplorerTests;
+			productReference = 48EB7DF725ED2E5C00CD106C /* ProcessExplorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,6 +199,10 @@
 					48E0E56325EA0B5400CC2B17 = {
 						CreatedOnToolsVersion = 12.3;
 						LastSwiftMigration = 1230;
+					};
+					48EB7DF625ED2E5C00CD106C = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 48E0E56325EA0B5400CC2B17;
 					};
 				};
 			};
@@ -163,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				48E0E56325EA0B5400CC2B17 /* ProcessExplorer */,
+				48EB7DF625ED2E5C00CD106C /* ProcessExplorerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +235,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48EB7DF525ED2E5C00CD106C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -187,6 +252,7 @@
 				48B6D12725EA35720050D3EF /* ProcessDetailViewController.swift in Sources */,
 				48E0E56825EA0B5400CC2B17 /* AppDelegate.swift in Sources */,
 				48B6D11425EA17AA0050D3EF /* ProcessInfoUtility.c in Sources */,
+				48EB7E0F25ED62E300CD106C /* MulticastDelegate.swift in Sources */,
 				48B6D11925EA222B0050D3EF /* ProcessInfo.swift in Sources */,
 				48B6D12325EA354C0050D3EF /* ProcessListViewController.swift in Sources */,
 				48E8F5B425EA77970000A20B /* ProcessExplorerController.swift in Sources */,
@@ -194,7 +260,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		48EB7DF325ED2E5C00CD106C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48EB7E0425ED440500CD106C /* ProcessListManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48EB7DFD25ED2E5C00CD106C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48E0E56325EA0B5400CC2B17 /* ProcessExplorer */;
+			targetProxy = 48EB7DFC25ED2E5C00CD106C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		48E0E56D25EA0B5500CC2B17 /* Main.storyboard */ = {
@@ -372,6 +454,46 @@
 			};
 			name = Release;
 		};
+		48EB7DFE25ED2E5C00CD106C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TC3335K9Y9;
+				INFOPLIST_FILE = ProcessExplorerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prashant.ProcessExplorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProcessExplorer.app/Contents/MacOS/ProcessExplorer";
+			};
+			name = Debug;
+		};
+		48EB7DFF25ED2E5C00CD106C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TC3335K9Y9;
+				INFOPLIST_FILE = ProcessExplorerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prashant.ProcessExplorerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProcessExplorer.app/Contents/MacOS/ProcessExplorer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -389,6 +511,15 @@
 			buildConfigurations = (
 				48E0E57525EA0B5500CC2B17 /* Debug */,
 				48E0E57625EA0B5500CC2B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48EB7E0025ED2E5C00CD106C /* Build configuration list for PBXNativeTarget "ProcessExplorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48EB7DFE25ED2E5C00CD106C /* Debug */,
+				48EB7DFF25ED2E5C00CD106C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

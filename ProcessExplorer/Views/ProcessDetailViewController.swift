@@ -10,11 +10,13 @@ import Cocoa
 
 
 class ProcessDetailViewController: NSViewController {
+  
     
     @IBOutlet weak var pidValueLabel: NSTextField!
     @IBOutlet weak var parentValueLabel: NSTextField!
     @IBOutlet weak var bundleIdLabel: NSTextField!
     @IBOutlet weak var pathValueLabel: NSTextField!
+    @IBOutlet weak var quitButton: NSButton!
     private weak var process:ProcessInfo?
     
     override func viewDidLoad() {
@@ -26,25 +28,47 @@ class ProcessDetailViewController: NSViewController {
         if let explorerController = self.parent as? ProcessExplorerController, let list = explorerController.splitViewItems.first?.viewController as? ProcessListViewController {
             list.delegate = self
         }
+        ProcessListManager.shared.delegates.add(self)
     }
     
     @IBAction func quitProcess(_ sender:Any){
         guard let pid = self.process?.pid else {return}
         ProcessListManager.shared.killProcess(pid: pid)
-        pidValueLabel.intValue = 0
-        parentValueLabel.intValue = 0
+        self.resetData()
+    }
+    
+    func resetData(){
+        pidValueLabel.stringValue = ""
+        parentValueLabel.stringValue = ""
         pathValueLabel.stringValue = ""
         bundleIdLabel.stringValue = ""
+        quitButton.isEnabled = false
+    }
+    
+    deinit {
+        ProcessListManager.shared.delegates.remove(self)
     }
 }
 
-extension ProcessDetailViewController:ProcessActionDelegate{
+extension ProcessDetailViewController:ProcessActionDelegate, ProcessStatusDelegate{
    
     func processSelected(with info:ProcessInfo){
         self.process = info
-        self.pidValueLabel.intValue = info.pid
-        self.parentValueLabel.intValue = info.ppid
+        self.pidValueLabel.stringValue = "\(info.pid)"
+        self.parentValueLabel.stringValue = "\(info.ppid)"
         self.pathValueLabel.stringValue = info.path
         self.bundleIdLabel.stringValue = info.bundleId
+        self.quitButton.isEnabled = true
     }
+    
+    func processTerminated(_ pid: pid_t) {
+        guard let selectedProcess = self.process else {
+            self.resetData()
+            return
+        }
+        if selectedProcess.pid == pid {
+            self.resetData()
+        }
+    }
+    
 }

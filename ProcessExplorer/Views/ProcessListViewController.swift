@@ -27,10 +27,8 @@ class ProcessListViewController: NSViewController {
         ProcessListManager.shared.fetch()
         updateProcessesLabel()
         ProcessListManager.shared.notifyAppState()
-        ProcessListManager.shared.processTerminated = {[weak self] in
-            self?.tableView?.reloadData()
-            self?.updateProcessesLabel()
-        }
+        ProcessListManager.shared.delegates.add(self)
+
         ProcessListManager.shared.processLaunched = {[weak self] in
             self?.tableView?.reloadData()
             self?.updateProcessesLabel()
@@ -40,7 +38,10 @@ class ProcessListViewController: NSViewController {
     func updateProcessesLabel(){
         self.processesLabel?.stringValue = ProcessListManager.shared.count > 1 ? "Processes: \(ProcessListManager.shared.count) " : "Process: \(ProcessListManager.shared.count) "
     }
-   
+    
+    deinit {
+        ProcessListManager.shared.delegates.remove(self)
+    }
 }
 
 extension ProcessListViewController:NSTableViewDelegate {
@@ -75,6 +76,15 @@ extension ProcessListViewController:NSTableViewDelegate {
         ProcessListManager.shared.updateSelection(process.pid)
         self.delegate?.processSelected(with: process)
     }
+}
+
+extension ProcessListViewController: ProcessStatusDelegate{
+   
+    func processTerminated(_ pid: pid_t) {
+        self.tableView?.reloadData()
+        self.updateProcessesLabel()
+    }
+    
 }
 
 extension ProcessListViewController:NSTableViewDataSource {
