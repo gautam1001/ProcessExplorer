@@ -90,7 +90,6 @@ class ProcessListManager {
                 self.processes.removeAll { p in
                     p.pid == pid
                 }
-                //self.processTerminated?(pid)
                 delegates.invoke { obj in
                     obj.processTerminated(pid)
                 }

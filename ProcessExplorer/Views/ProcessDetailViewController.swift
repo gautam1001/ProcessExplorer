@@ -35,7 +35,6 @@ class ProcessDetailViewController: NSViewController {
     @IBAction func quitProcess(_ sender:Any){
         guard let pid = self.process?.pid else {return}
         ProcessListManager.shared.killProcess(pid: pid)
-        self.resetData()
     }
     
     // Reset UI to initial/unselected state

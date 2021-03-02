@@ -45,17 +45,17 @@ class ProcessListManagerTests: XCTestCase {
     func testProcessKill(){
         self.testFetch()
         guard let processes = self.listManager?.processes else { return }
-        let processToBeKilled = processes[0].pid
+        self.listManager?.delegates.add(self)
+        self.processToBeKilled = processes[0].pid
         self.listManager?.killProcess(pid: processToBeKilled)
-//        self.listManager?.processTerminated = { pid in
-//
-//        }
     }
 }
 
 extension ProcessListManagerTests:ProcessStatusDelegate {
     func processTerminated(_ pid: pid_t) {
         XCTAssertEqual(self.processToBeKilled, pid, "Process should be terminated")
+        self.processToBeKilled = 0
+        self.listManager?.delegates.remove(self)
     }
     
     
