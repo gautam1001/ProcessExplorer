@@ -1,9 +1,9 @@
 //
 //  MulticastDelegate.swift
-//  eCommerceApp
+//  ProcessExplorer
 //
 //  Created by Prashant on 01/02/21.
-//  Copyright © 2020 Prashant. All rights reserved.
+//  Copyright © 2021 Prashant. All rights reserved.
 //
 
 import Foundation
